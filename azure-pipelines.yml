@@ -7,6 +7,7 @@
     location: 'West US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'azure-deploy.json'
+    csmParametersFile: 'azure-deploy.params.json'
     deploymentMode: 'Complete'
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.
