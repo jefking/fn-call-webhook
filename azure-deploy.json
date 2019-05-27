@@ -44,15 +44,15 @@
                     "appSettings": [
                             {
                                 "name": "AzureWebJobsDashboard",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
                             },
                             {
                                 "name": "AzureWebJobsStorage",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
                             },
                             {
                                 "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
                             },
                             {
                                 "name": "WEBSITE_CONTENTSHARE",
@@ -103,7 +103,8 @@
             "properties": {
                 "accessTier": "Hot"
             }
-        },{
+        },
+        {
             "apiVersion": "2017-04-01",
             "name": "[variables('serviceBusNamespaceName')]",
             "type": "Microsoft.ServiceBus/Namespaces",
