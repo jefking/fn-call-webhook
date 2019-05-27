@@ -1,0 +1,13 @@
+{
+    "bindings": [
+        {
+            "queueName": "users",
+            "name": "in",
+            "type": "serviceBusTrigger",
+            "direction": "in",
+            "connection": "ServiceBus",
+            "accessRights": "Manage"
+        }
+    ],
+    "disabled": false
+}
