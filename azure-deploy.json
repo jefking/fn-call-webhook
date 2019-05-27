@@ -64,7 +64,7 @@
                             },
                             {
                                 "name": "ServiceBus",
-                                "value": "N/A"
+                                "value": "[listKeys(resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', variables('serviceBusNamespaceName'), 'RootManageSharedAccessKey'), '2017-04-01').primaryConnectionString]"
                             }
                     ]
                 },
