@@ -3,11 +3,12 @@
   inputs:
     azureSubscription: 'Visual Studio Enterprise (011fd5e2-60c9-4a71-8bcd-659a9fbbfd4c)'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'oss'
+    resourceGroupName: 'thinking'
     location: 'West US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'azure-deploy.json'
-    deploymentMode: 'Incremental'
+    deploymentMode: 'Complete'
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -17,12 +18,3 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
