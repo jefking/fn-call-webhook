@@ -39,7 +39,7 @@
             "location": "[resourceGroup().location]",
             "kind": "functionapp",
             "properties": {
-                "name": "[parameters('siteName')]",
+                "name": "[parameters('appName')]",
                 "siteConfig": {
                     "appSettings": [
                             {
@@ -72,7 +72,7 @@
                     "name": "web",
                     "type": "sourcecontrols",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+                        "[resourceId('Microsoft.Web/Sites', parameters('appName'))]"
                     ],
                     "properties": {
                         "RepoUrl": "[variables('repoURL')]",
