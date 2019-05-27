@@ -13,6 +13,7 @@
         "storageName": "[concat('function', uniqueString(parameters('appName')))]",
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
+        "serviceBusNamespaceName": "[concat(parameters('appName'), '-msgs')]",
         "repoUrl": "https://github.com/jefking/fn-call-webhook",
         "branch": "master"
     },
@@ -101,6 +102,37 @@
             "properties": {
                 "accessTier": "Hot"
             }
-        }
+        },{
+            "apiVersion": "2017-04-01",
+            "name": "[parameters('serviceBusNamespaceName')]",
+            "type": "Microsoft.ServiceBus/Namespaces",
+            "location": "[resourceGroup().location]",
+            "sku": {
+              "name": "Standard"
+            },
+            "resources": [
+              {
+                "apiVersion": "2017-04-01",
+                "name": "[parameters('serviceBusQueueName')]",
+                "type": "Topics",
+                "dependsOn": [
+                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                ],
+                "properties": {
+                  "lockDuration": "PT5M",
+                  "maxSizeInMegabytes": "1024",
+                  "requiresDuplicateDetection": "false",
+                  "requiresSession": "false",
+                  "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+                  "deadLetteringOnMessageExpiration": "false",
+                  "duplicateDetectionHistoryTimeWindow": "PT10M",
+                  "maxDeliveryCount": "10",
+                  "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+                  "enablePartitioning": "false",
+                  "enableExpress": "false"
+                }
+              }
+            ]
+          }
     ]
 }
