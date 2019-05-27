@@ -27,7 +27,6 @@
             "apiVersion": "2015-04-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-            
             "properties": {
                 "name": "[variables('hostingPlanName')]",
                 "computeMode": "Dynamic",
@@ -44,30 +43,30 @@
                 "name": "[parameters('appName')]",
                 "siteConfig": {
                     "appSettings": [
-                            {
-                                "name": "AzureWebJobsDashboard",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                            },
-                            {
-                                "name": "AzureWebJobsStorage",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                            },
-                            {
-                                "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                            },
-                            {
-                                "name": "WEBSITE_CONTENTSHARE",
-                                "value": "[toLower(variables('functionAppName'))]"
-                            },
-                            {
-                                "name": "FUNCTIONS_EXTENSION_VERSION",
-                                "value": "~2"
-                            },
-                            {
-                                "name": "ServiceBus",
-                                "value": "[listkeys(variables('authRuleResourceId'), '2017-04-01').primaryConnectionString]"
-                            }
+                        {
+                            "name": "AzureWebJobsDashboard",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value": "[toLower(variables('functionAppName'))]"
+                        },
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value": "~2"
+                        },
+                        {
+                            "name": "ServiceBus",
+                            "value": "[listkeys(variables('authRuleResourceId'), '2017-04-01').primaryConnectionString]"
+                        }
                     ]
                 },
                 "clientAffinityEnabled": false
@@ -113,57 +112,57 @@
             "type": "Microsoft.ServiceBus/Namespaces",
             "location": "[resourceGroup().location]",
             "sku": {
-              "name": "Standard"
+                "name": "Standard"
             },
             "resources": [
-              {
-                "apiVersion": "2017-04-01",
-                "name": "[variables('topicName')]",
-                "type": "Topics",
-                "dependsOn": [
-                    "[concat('Microsoft.ServiceBus/namespaces/', variables('serviceBusNamespaceName'))]"
-                ],
-                "properties": {
-                    "path": "[variables('topicName')]",
-                    "lockDuration": "PT5M",
-                    "maxSizeInMegabytes": "1024",
-                    "requiresDuplicateDetection": "false",
-                    "requiresSession": "false",
-                    "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
-                    "deadLetteringOnMessageExpiration": "false",
-                    "duplicateDetectionHistoryTimeWindow": "PT10M",
-                    "maxDeliveryCount": "10",
-                    "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
-                    "enablePartitioning": "false",
-                    "enableExpress": "false"
-                },
-                "resources": [
-                    {
-                        "apiVersion": "2017-04-01",
-                        "name": "All",
-                        "type": "Subscriptions",
-                        "dependsOn": [
-                            "[variables('topicName')]"
-                        ],
-                        "resources": [
-                            {
-                                "apiVersion": "2017-04-01",
-                                "name": "all-rule",
-                                "type": "Rules",
-                                "dependsOn": [
-                                    "All"
-                                ],
-                                "properties": {
-                                    "filter": {
-                                        "sqlExpression": "0=0"
+                {
+                    "apiVersion": "2017-04-01",
+                    "name": "[variables('topicName')]",
+                    "type": "Topics",
+                    "dependsOn": [
+                        "[concat('Microsoft.ServiceBus/namespaces/', variables('serviceBusNamespaceName'))]"
+                    ],
+                    "properties": {
+                        "path": "[variables('topicName')]",
+                        "lockDuration": "PT5M",
+                        "maxSizeInMegabytes": "1024",
+                        "requiresDuplicateDetection": "false",
+                        "requiresSession": "false",
+                        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+                        "deadLetteringOnMessageExpiration": "false",
+                        "duplicateDetectionHistoryTimeWindow": "PT10M",
+                        "maxDeliveryCount": "10",
+                        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+                        "enablePartitioning": "false",
+                        "enableExpress": "false"
+                    },
+                    "resources": [
+                        {
+                            "apiVersion": "2017-04-01",
+                            "name": "All",
+                            "type": "Subscriptions",
+                            "dependsOn": [
+                                "[variables('topicName')]"
+                            ],
+                            "resources": [
+                                {
+                                    "apiVersion": "2017-04-01",
+                                    "name": "all-rule",
+                                    "type": "Rules",
+                                    "dependsOn": [
+                                        "All"
+                                    ],
+                                    "properties": {
+                                        "filter": {
+                                            "sqlExpression": "0=0"
+                                        }
                                     }
                                 }
-                            }
-                        ]
-                    }
-                ]
-              }
+                            ]
+                        }
+                    ]
+                }
             ]
-          }
+        }
     ]
 }
