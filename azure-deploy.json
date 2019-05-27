@@ -14,7 +14,7 @@
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
         "serviceBusNamespaceName": "[concat(parameters('appName'), '-msgs')]",
-        "storageAccountName": "[concat(parameters('appName'), '-storage')]",
+        "storageAccountName": "[concat(parameters('appName'), 'storage')]",
         "topicName": "users",
         "repoUrl": "https://github.com/jefking/fn-call-webhook",
         "branch": "master"
