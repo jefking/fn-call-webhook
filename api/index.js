@@ -10,7 +10,7 @@ module.exports = function (context, req) {
 
         var msg = {
             body: JSON.stringify(model),
-            contentType = "application/json",
+            contentType: "application/json",
             userProperties: {
                 id: model.id
             }
