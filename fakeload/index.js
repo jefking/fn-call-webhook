@@ -10,7 +10,7 @@ module.exports = function (context, req) {
         id: num,
         unique: uuidv4()
     };
-    request.post('https://deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
+    request.post('https://deepthunker.azurewebsites.net/api/api?code=DJS2xMNI9oSjacE1765yn5jxmVupRZX9f2SbOltqoZtPQDjRTKf2Xw==',
         {
             json: true,
             body: model
