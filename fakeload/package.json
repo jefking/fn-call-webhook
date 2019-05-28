@@ -2,7 +2,6 @@
     "name": "fake-load",
     "version": "0.0.1",
     "dependencies": {
-        "http": "^0.0.0",
-        "querystring": "^0.2.0"
+        "request": "^2.88.0"
     }
 }
