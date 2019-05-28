@@ -14,6 +14,7 @@
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
         "serviceBusNamespaceName": "[concat(parameters('appName'), '-msgs')]",
+        "applicationInsightsName": "[parameters('appName')]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', variables('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
         "storageAccountName": "[concat(parameters('appName'), 'storage')]",
@@ -62,6 +63,10 @@
                         {
                             "name": "ServiceBus",
                             "value": "[listkeys(variables('authRuleResourceId'), '2017-04-01').primaryConnectionString]"
+                        },
+                        {
+                          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                          "value": "[reference(resourceId('microsoft.insights/components/', variables('applicationInsightsName')), '2015-05-01').InstrumentationKey]"
                         }
                     ]
                 },
@@ -85,7 +90,8 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                 "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-                "[resourceId('Microsoft.ServiceBus/Namespaces', variables('serviceBusNamespaceName'))]"
+                "[resourceId('Microsoft.ServiceBus/Namespaces', variables('serviceBusNamespaceName'))]",
+                "[resourceId('microsoft.insights/components', variables('applicationInsightsName'))]"
             ]
         },
         {
@@ -102,6 +108,19 @@
                 "accessTier": "Hot"
             }
         },
+        {
+            "apiVersion": "2018-05-01-preview",
+            "name": "[variables('applicationInsightsName')]",
+            "type": "microsoft.insights/components",
+            "location": "East US",
+            "tags": {
+              "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('applicationInsightsName'))]": "Resource"
+            },
+            "properties": {
+              "ApplicationId": "[variables('applicationInsightsName')]",
+              "Request_Source": "IbizaWebAppExtensionCreate"
+            }
+          },
         {
             "apiVersion": "2017-04-01",
             "name": "[variables('serviceBusNamespaceName')]",
