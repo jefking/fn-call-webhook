@@ -14,11 +14,14 @@ module.exports = function (context, req) {
         model.At = scheduledEnqueueTimeUtc;
 
         var msg = {
-            body: model,
+            body: JSON.stringify(model),
+            //contentType: "application/json",
             userProperties: {
                 id: model.id
             }
         }
+
+        context.log(msg);
 
         const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
         const topicClient = sbClient.createTopicClient(process.env.TopicName);
