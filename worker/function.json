@@ -2,7 +2,8 @@
     "bindings": [
         {
             "topicName": "users",
-            "name": "in",
+            "subscriptionName": "all",
+            "name": "message",
             "type": "serviceBusTrigger",
             "direction": "in",
             "connection": "ServiceBus",

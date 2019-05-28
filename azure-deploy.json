@@ -159,7 +159,7 @@
                     "resources": [
                         {
                             "apiVersion": "2017-04-01",
-                            "name": "All",
+                            "name": "all",
                             "type": "Subscriptions",
                             "dependsOn": [
                                 "[variables('topicName')]"
@@ -170,7 +170,7 @@
                                     "name": "all-rule",
                                     "type": "Rules",
                                     "dependsOn": [
-                                        "All"
+                                        "all"
                                     ],
                                     "properties": {
                                         "filter": {
