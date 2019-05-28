@@ -8,11 +8,13 @@ module.exports = function (context, req) {
     let num = Math.floor(Math.random() * 10);
     let m = {
         id: num,
-        unique: uuidv4()
+        unique: uuidv4(),
+        code: "Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g=="//HACKY WORK AROUND
     };
 
     context.log(m);
-    context.log(querystring.stringify(m));//temp
+    context.log(querystring.stringify(m));
+    
     PostCode(m);
 
     context.done();
@@ -26,7 +28,7 @@ function PostCode(model) {
     var post_options = {
         host: 'deepthunker.azurewebsites.net',
         port: '443',
-        path: '/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
+        path: '/api/api',
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
