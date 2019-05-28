@@ -6,12 +6,13 @@ module.exports = function (context, req) {
 
     let num = Math.floor(Math.random() * 10);
 
+    var model = {
+
+    };
     request.post('https://deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
         {
-            json: {
-                id: num,
-                unique: uuidv4()
-            }
+            json: true,
+            body: model
         },
         function (error, response, body) {
             if (error) context.done(error);
