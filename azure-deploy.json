@@ -112,15 +112,12 @@
             "apiVersion": "2018-05-01-preview",
             "name": "[variables('applicationInsightsName')]",
             "type": "microsoft.insights/components",
-            "location": "East US",
-            "tags": {
-              "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('applicationInsightsName'))]": "Resource"
-            },
+            "location": "[resourceGroup().location]",
             "properties": {
-              "ApplicationId": "[variables('applicationInsightsName')]",
-              "Request_Source": "IbizaWebAppExtensionCreate"
+                "ApplicationId": "[variables('applicationInsightsName')]",
+                "Request_Source": "IbizaWebAppExtensionCreate"
             }
-          },
+        },
         {
             "apiVersion": "2017-04-01",
             "name": "[variables('serviceBusNamespaceName')]",
