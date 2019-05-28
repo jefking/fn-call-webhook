@@ -13,7 +13,7 @@ module.exports = function (context, req) {
     request.post('https://deepthunker.azurewebsites.net/api/api?code=DJS2xMNI9oSjacE1765yn5jxmVupRZX9f2SbOltqoZtPQDjRTKf2Xw==',
         {
             json: true,
-            body: model
+            body: JSON.stringify(model)
         },
         function (error, response, body) {
             if (error) context.done(error);
