@@ -10,6 +10,7 @@ module.exports = function (context, req) {
 
         var msg = {
             body: JSON.stringify(model),
+            scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
             contentType: "application/json",
             userProperties: {
                 id: model.id
