@@ -12,7 +12,7 @@ module.exports = function (context, req) {
     };
 
     context.log(m);
-    
+    context.log(querystring.stringify(m));//temp
     PostCode(m);
 
     context.done();
