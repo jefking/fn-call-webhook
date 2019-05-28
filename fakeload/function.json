@@ -2,6 +2,7 @@
     "bindings": [
         {
             "schedule": "*/5 * * * * *",
+            "name": "timer",
             "type": "timerTrigger",
             "direction": "in"
         }
