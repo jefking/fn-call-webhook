@@ -2,6 +2,7 @@ var request = require('request');
 
 module.exports = function (context, message) {
     context.log(message);
+    context.log(context.bindings.message);
 
     request.post('https://deepthunker.azurewebsites.net/api/fakehook?code=n8ac5oliqJyqreC7wOpbvRE71WpKAY8nfLRC4z9diNVHRrVyXsagLg==',
         {
