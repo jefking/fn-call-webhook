@@ -1,3 +1,3 @@
 module.exports = function (context, req) {
-    context.log('api called');
+    context.log('fake-hook called');
 }
