@@ -7,7 +7,7 @@ module.exports = function (context, req) {
     let num = Math.floor(Math.random() * 10);
 
     request.post(
-        'deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
+        'https://deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
         {
             json: {
                 id: num,
