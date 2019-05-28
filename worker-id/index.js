@@ -1,3 +1,5 @@
+var request = require('request');
+
 module.exports = function (context, message) {
     context.log('webhook caller called');
     context.log(message);
