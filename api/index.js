@@ -1,35 +1,31 @@
-const azure = require('azure-sb');
+const { ServiceBusClient } = require("@azure/service-bus"); 
 
 module.exports = function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = !model ? "no data; or invalid payload in body" : null;
 
     if (!err) {
-        var brokeredMessage = {
+        const timeNowUtc = new Date(Date.now());
+        const scheduledEnqueueTimeUtc = new Date(Date.now() + 1000);
+
+        var msg = {
             body: JSON.stringify(model),
             contentType = "application/json",
-            customProperties: {
+            userProperties: {
                 id: model.id
             }
         }
 
-        let serviceBusService = azure.createServiceBusService(process.env.ServiceBus);
-        serviceBusService.sendTopicMessage(process.env.TopicName, brokeredMessage, function (error) {
-
-            context.res = {
-                status: error ? 500 : 200,
-                body: error
-            };
-
-            context.done(error);
-        });
-        
-    } else {
-        context.res = {
-            status: err ? 500 : 200,
-            body: err
-        };
-
-        context.done(err);
+        const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
+        const topicClient = sbClient.createTopicClient(process.env.TopicName);
+        const sender = topicClient.createSender();
+        sender.send(msg);
     }
+    
+    context.res = {
+        status: err ? 500 : 200,
+        body: err
+    };
+
+    context.done(err);
 };
