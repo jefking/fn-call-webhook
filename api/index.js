@@ -26,7 +26,7 @@ module.exports = function (context, req) {
         const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
         const topicClient = sbClient.createTopicClient(process.env.TopicName);
         const sender = topicClient.createSender();
-        sender.scheduleMessages(scheduledEnqueueTimeUtc, model);
+        sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
     }
     
     context.res = {
