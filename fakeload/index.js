@@ -6,6 +6,8 @@ module.exports = function (context, req) {
         id: num,
         unique: uuidv4()
     };
+
+    context.log(m);
     
     context.done(null, m);
 }
