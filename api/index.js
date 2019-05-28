@@ -10,7 +10,6 @@ module.exports = function (context, req) {
 
         var msg = {
             body: JSON.stringify(model),
-            scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
             contentType: "application/json",
             userProperties: {
                 id: model.id
@@ -20,7 +19,7 @@ module.exports = function (context, req) {
         const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
         const topicClient = sbClient.createTopicClient(process.env.TopicName);
         const sender = topicClient.createSender();
-        sender.send(msg);
+        sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
     }
     
     context.res = {
