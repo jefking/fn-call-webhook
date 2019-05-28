@@ -8,6 +8,9 @@ module.exports = function (context, req) {
         const timeNowUtc = new Date(Date.now());
         const scheduledEnqueueTimeUtc = new Date(Date.now() + 1000);
 
+        model.Now = timeNowUtc;
+        model.At = scheduledEnqueueTimeUtc;
+
         var msg = {
             body: JSON.stringify(model),
             contentType: "application/json",
