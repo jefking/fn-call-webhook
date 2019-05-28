@@ -1,4 +1,6 @@
 module.exports = function (context, message) {
-    context.log('worker called');
+    context.log('logging called');
     context.log(message);
+
+    context.done();
 }
