@@ -1,0 +1,8 @@
+
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.WebJobs.Extensions.ServiceBus",
+        "version": "3.0.3"
+    }
+}
