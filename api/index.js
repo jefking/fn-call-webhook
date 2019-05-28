@@ -1,26 +1,36 @@
 const azure = require('azure-sb');
 
 module.exports = function (context, req) {
-    context.log('api called');
+    let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
+    let err = !model ? "no data; or invalid payload in body" : null;
 
-    let model = {};
-    var brokeredMessage = {
-        body: JSON.stringify(model),
-        customProperties: {
-            //Add custom properties to filter on with Subscriptions
-            'id':'2'
+
+    if (!err) {
+        var brokeredMessage = {
+            body: JSON.stringify(model),
+            customProperties: {
+                //Add custom properties to filter on with Subscriptions
+                id: model.id
+            }
         }
-    }
 
-    let serviceBusService = azure.createServiceBusService(process.env.ServiceBus);
+        let serviceBusService = azure.createServiceBusService(process.env.ServiceBus);
+        serviceBusService.sendTopicMessage(process.env.TopicName, brokeredMessage, function (error) {
 
-    serviceBusService.sendTopicMessage(process.env.TopicName, brokeredMessage, function (error) {
+            context.res = {
+                status: error ? 500 : 200,
+                body: error
+            };
+
+            context.done(error);
+        });
         
-    });
+    } else {
+        context.res = {
+            status: err ? 500 : 200,
+            body: err
+        };
 
-    context.res = {
-        status: 200
-    };
-
-    context.done();
-}
+        context.done(err);
+    }
+};
