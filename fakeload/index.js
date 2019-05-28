@@ -11,6 +11,8 @@ module.exports = function (context, req) {
         unique: uuidv4()
     };
     
+    context.log(model);
+
     request.post('https://deepthunker.azurewebsites.net/api/api?code=DJS2xMNI9oSjacE1765yn5jxmVupRZX9f2SbOltqoZtPQDjRTKf2Xw==',
         {
             json: true,
