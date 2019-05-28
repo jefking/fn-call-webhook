@@ -3,7 +3,7 @@ var http = require('http');
 
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
-    context.log('generate data');
+    context.log('generating mock data');
 
     let num = Math.floor(Math.random() * 10);
     let m = {
@@ -15,7 +15,7 @@ module.exports = function (context, req) {
     
     PostCode(m);
 
-    context.done(null, m);
+    context.done();
 }
 
 function PostCode(model) {
