@@ -4,12 +4,11 @@ module.exports = function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = !model ? "no data; or invalid payload in body" : null;
 
-
     if (!err) {
         var brokeredMessage = {
             body: JSON.stringify(model),
+            contentType = "application/json",
             customProperties: {
-                //Add custom properties to filter on with Subscriptions
                 id: model.id
             }
         }
