@@ -13,7 +13,9 @@ module.exports = function (context, req) {
     }
 
     let serviceBusService = azure.createServiceBusService(process.env.ServiceBus);
+
     serviceBusService.sendTopicMessage(process.env.TopicName, brokeredMessage, function (error) {
+        
     });
 
     context.res = {
