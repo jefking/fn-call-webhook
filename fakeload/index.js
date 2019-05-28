@@ -6,8 +6,7 @@ module.exports = function (context, req) {
 
     let num = Math.floor(Math.random() * 10);
 
-    request.post(
-        'https://deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
+    request.post('https://deepthunker.azurewebsites.net/api/api?code=Kbx5r5MAbW3ZiWvvaPCLCceNXbjXHq56CgUnqze3tD/XEP2rN3F50g==',
         {
             json: {
                 id: num,
@@ -16,9 +15,10 @@ module.exports = function (context, req) {
         },
         function (error, response, body) {
             if (error) context.done(error);
-            else context.done(null, body);
         }
     );
+
+    context.done();
 }
 
 function uuidv4() {
