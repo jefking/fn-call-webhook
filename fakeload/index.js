@@ -1,3 +1,6 @@
+var querystring = require('querystring');
+var http = require('http');
+
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
     context.log('generate data');
