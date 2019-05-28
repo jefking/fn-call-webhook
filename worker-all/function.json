@@ -3,7 +3,7 @@
         {
             "topicName": "users",
             "subscriptionName": "all",
-            "name": "message",
+            "name": "msg",
             "type": "serviceBusTrigger",
             "direction": "in",
             "connection": "ServiceBus",
