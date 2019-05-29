@@ -5,7 +5,7 @@ module.exports = function (context, msg, registration) {
     appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
 
-    // context.log({reg: registration});
+    context.log({reg: registration});
     // let config = JSON.parse(registration);
 
     // context.log({config: config});
