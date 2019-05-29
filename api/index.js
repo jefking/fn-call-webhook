@@ -1,10 +1,14 @@
+var request = require('request');
+
+const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
+const topicClient = sbClient.createTopicClient(process.env.TopicName);
+const sender = topicClient.createSender();
 
 module.exports = async function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = !model ? "no data; or invalid payload in body" : null;
 
     context.log(model);
-    // let msg = null;
 
     if (!err) {
         const timeNowUtc = new Date(Date.now());
@@ -13,19 +17,19 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
-        context.bindings.send = model;
-        // context.bindings.send = {
-        //     body: JSON.stringify(model),
-        //     contentType: "application/json",
-        //     scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
-        //     userProperties: {
-        //         id: model.id
-        //     }
-        // }
+        let msg = {
+            body: JSON.stringify(model),
+            contentType: "application/json",
+            scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
+            userProperties: {
+                id: model.id
+            }
+        }
 
-        context.log(context.bindings.send);
-        // context.bindings.send = msg;
-        // context.log(msg);
+        context.log(msg);
+
+        await sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
+        context.bindings.send = msg;
     }
     
     context.res = {
