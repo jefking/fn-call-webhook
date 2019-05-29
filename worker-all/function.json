@@ -12,7 +12,7 @@
           "name": "registration",
           "type": "blob",
           "direction": "in",
-          "path": "registry/fake.json"
+          "path": "registry/demo.demo.e155369f.json"
         }
     ],
     "disabled": false
