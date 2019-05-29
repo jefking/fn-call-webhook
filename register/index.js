@@ -8,11 +8,11 @@ module.exports = async function (context, req) {
     err += !model.tenantId ? "no tenand id" : null;
 
     context.res = {
-        status: err != '' ? 500 : 200,
+        status: err == '' ? 200 : 500,
         body: err
     };
 
     context.bindings.json = model;
     
-    context.done(err != '' ? err : null);
+    context.done(err == '' ? null : err);
 };
