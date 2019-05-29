@@ -2,6 +2,7 @@
     "name": "worker",
     "version": "0.0.1",
     "dependencies": {
-        "request": "^2.88.0"
+        "request": "^2.88.0",
+        "applicationinsights": "^1.3.1"
     }
 }

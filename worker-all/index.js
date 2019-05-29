@@ -1,4 +1,5 @@
-var request = require('request');
+const request = require('request');
+const appInsights = require("applicationinsights");
 
 module.exports = function (context, msg) {
     context.log(msg);
