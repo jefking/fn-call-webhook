@@ -2,7 +2,7 @@ var request = require('request');
 
 
 const resources = ['user', 'order', 'enrollment'];
-const actions = new HashChangeEvent(
+const actions = new Hash(
     resources[0], ['signup', 'signin'],
     resources[1], ['created'],
     resources[2], ['created', 'trial', 'progress', 'completed']
