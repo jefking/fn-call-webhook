@@ -18,7 +18,7 @@ module.exports = function (context, req) {
         "addMinutes": future
     };
     
-    request.post('https://deepthunker.azurewebsites.net/api/api?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
+    request.post('https://deepthunker.azurewebsites.net/api/publis?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
         {
             json: true,
             body: model
