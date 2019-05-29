@@ -9,13 +9,15 @@ module.exports = function (context, req) {
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
     let actionNum = Math.floor(Math.random() * actions[resource].length);
-
+    let action = actions[resource][actionNum];
+    let future = Math.floor(Math.random() * 15);
+    
     var model = {
         userId: num,
         tenantId: uuidv4(),
         resource: resource,
-        action: actions[resource][actionNum],
-        addMinutes: Math.floor(Math.random() * 5)
+        action: action,
+        addMinutes: future
     };
     
     request.post('https://deepthunker.azurewebsites.net/api/api?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
