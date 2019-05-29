@@ -28,7 +28,7 @@ module.exports = async function (context, req) {
         context.log(msg);
 
         await sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
-        context.bindings.send = msg;
+        //context.bindings.send = msg;
     }
     
     context.res = {
