@@ -9,6 +9,8 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
+        context.log(model);
+
         context.bindings.send = {
             body: model,
             contentType: "application/json",
