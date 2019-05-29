@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
             }
         }
 
-        context.log(context.binding.out);
+        context.log(msg);
     }
     
     context.res = {
