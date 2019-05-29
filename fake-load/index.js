@@ -12,7 +12,7 @@ module.exports = function (context, req) {
     let future = Math.floor(Math.random() * 15);
     
     var model = {
-        "tenantId": "e155369f",//uuidv4(),
+        "tenantId": "e155369f",//uuidv4(), HARD CODED FOR TESTING
         "resource": resource,
         "action": action,
         "addMinutes": future
