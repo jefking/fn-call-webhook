@@ -5,7 +5,7 @@ const actions = LoadActions();
 
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
-    let num = Math.floor(Math.random() * 10);    
+    let num = Math.floor(Math.random() * 10000);    
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
     let actionNum = Math.floor(Math.random() * actions[resource].length);
