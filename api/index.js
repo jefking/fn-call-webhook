@@ -13,14 +13,15 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
-        context.bindings.send = {
-            body: JSON.stringify(model),
-            contentType: "application/json",
-            scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
-            userProperties: {
-                id: model.id
-            }
-        }
+        context.bindings.send = model;
+        // context.bindings.send = {
+        //     body: JSON.stringify(model),
+        //     contentType: "application/json",
+        //     scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
+        //     userProperties: {
+        //         id: model.id
+        //     }
+        // }
 
         context.log(context.bindings.send);
         // context.bindings.send = msg;
