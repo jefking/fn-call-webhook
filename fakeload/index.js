@@ -1,15 +1,20 @@
 var request = require('request');
 
+
+const resources = ['user', 'order', 'enrollment'];
+
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
     context.log('generating mock data');
 
     let num = Math.floor(Math.random() * 10);
+    let resourceNum = Math.floor(Math.random() * 3);
 
     var model = {
         id: num,
-        unique: uuidv4(),
-        from: "nodejs"
+        tenantId: uuidv4(),
+        resource: resources[resourceNum],
+        action: 'created'
     };
     
     context.log(model);
