@@ -2,18 +2,25 @@ var request = require('request');
 
 
 const resources = ['user', 'order', 'enrollment'];
+const actions = new HashChangeEvent(
+    resources[0], ['signup', 'signin'],
+    resources[1], ['created'],
+    resources[2], ['created', 'trial', 'progress', 'completed']
+);
 
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
     context.log('generating mock data');
 
-    let num = Math.floor(Math.random() * 10);
+    let num = Math.floor(Math.random() * 10);    
     let resourceNum = Math.floor(Math.random() * 3);
+    resource = resources[resourceNum];
+    let actionNum = Math.floor(Math.random() * actions[resource].length);
 
     var model = {
         id: num,
         tenantId: uuidv4(),
-        resource: resources[resourceNum],
+        resource: resource,
         action: 'created'
     };
     
