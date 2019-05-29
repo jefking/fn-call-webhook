@@ -6,8 +6,12 @@ module.exports = function (context, msg, registration) {
     let aiClient = appInsights.defaultClient;
 
     context.log({reg: registration});
+    let config = JSON.parse(registration);
 
-    let url = registration.url;//'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
+    context.log({config: config});
+    let url = config.url;//'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
+    
+    context.log({url: url});
     // request.post(url,
     //     {
     //         json: true,
