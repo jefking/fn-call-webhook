@@ -1,11 +1,11 @@
 module.exports = async function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = ''
-    err += !model ? "no data; or invalid payload in body" : null;
-    err += !model.url ? "no url" : null;
-    err += !model.action ? "no action" : null;
-    err += !model.resource ? "no resource" : null;
-    err += !model.tenantId ? "no tenand id" : null;
+    err += !model ? "no data; or invalid payload in body" : '';
+    err += !model.url ? "no url" : '';
+    err += !model.action ? "no action" : '';
+    err += !model.resource ? "no resource" : '';
+    err += !model.tenantId ? "no tenand id" : '';
 
     context.res = {
         status: err == '' ? 200 : 500,
