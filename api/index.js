@@ -17,21 +17,14 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
-        let msg = {
-            body: model, //JSON.stringify(model),
+        context.bindings.send = {
+            body: model,
             contentType: "application/json",
             scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
             userProperties: {
                 id: model.id
             }
         }
-
-        context.log(msg);
-
-       // await sender.scheduleMessages(scheduledEnqueueTimeUtc, [{body: "shipping an array of messages"}]);
-
-        //await sender.send(msg);
-        context.bindings.send = msg;
     }
     
     context.res = {
