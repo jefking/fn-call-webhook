@@ -13,8 +13,8 @@ module.exports = function (context, req) {
     
     var model = {
         "tenantId": "e155369f",//uuidv4(),
-        "resource": "temp",//resource,
-        "action": "temp",//action,
+        "resource": resource,
+        "action": action,
         "addMinutes": future
     };
     
