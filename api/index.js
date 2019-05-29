@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
 
     if (!err) {
         const timeNowUtc = new Date(Date.now());
-        const scheduledEnqueueTimeUtc = new Date(Date.now() + 60000);
+        const scheduledEnqueueTimeUtc = new Date(Date.now() + (model.addMinutes * 60000));
 
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;

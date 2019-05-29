@@ -179,29 +179,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "apiVersion": "2017-04-01",
-                            "name": "id-subset",
-                            "type": "Subscriptions",
-                            "dependsOn": [
-                                "[variables('topicName')]"
-                            ],
-                            "resources": [
-                                {
-                                    "apiVersion": "2017-04-01",
-                                    "name": "lessthanfive",
-                                    "type": "Rules",
-                                    "dependsOn": [
-                                        "id-subset"
-                                    ],
-                                    "properties": {
-                                        "filter": {
-                                            "sqlExpression": "id < 5"
-                                        }
-                                    }
-                                }
-                            ]
                         }
                     ]
                 }
