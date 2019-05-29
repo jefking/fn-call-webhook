@@ -5,8 +5,6 @@ const actions = LoadActions();
 
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
-    context.log('generating mock data');
-
     let num = Math.floor(Math.random() * 10);    
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
