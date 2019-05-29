@@ -15,7 +15,7 @@
             "name": "res"
         },
         {
-            "name": "out",
+            "name": "send",
             "type": "serviceBus",
             "topicName": "users",
             "connection": "ServiceBus",
