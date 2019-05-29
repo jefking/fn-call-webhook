@@ -1,8 +1,10 @@
+
 module.exports = async function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = !model ? "no data; or invalid payload in body" : null;
 
     context.log(model);
+    let msg = null;
 
     if (!err) {
         const timeNowUtc = new Date(Date.now());
@@ -11,7 +13,7 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
-        context.binding.out = {
+        msg = {
             body: JSON.stringify(model),
             contentType: "application/json",
             scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
@@ -28,5 +30,5 @@ module.exports = async function (context, req) {
         body: err
     };
 
-    context.done(err);
+    context.done(err, msg);
 };
