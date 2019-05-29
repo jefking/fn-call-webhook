@@ -2,7 +2,7 @@ const request = require('request');
 const appInsights = require("applicationinsights");
 
 module.exports = function (context, msg) {
-    appInsights.setup().start(); // assuming ikey is in env var
+    appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
 
     let url = 'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
