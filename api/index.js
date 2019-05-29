@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
             }
         }
 
-        context.log(ontext.bindings.send);
+        context.log(context.bindings.send);
         // context.bindings.send = msg;
         // context.log(msg);
     }
