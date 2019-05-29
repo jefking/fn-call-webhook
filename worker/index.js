@@ -5,8 +5,6 @@ module.exports = function (context, msg, registration) {
     appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
     
-    context.log(registration);
-
     request.post(registration.url,
         {
             json: true,
@@ -21,7 +19,7 @@ module.exports = function (context, msg, registration) {
             {
                 context.log({rep: response});
 
-                client.trackRequest({name:"POST", url:registration.url, duration:309, resultCode:200, success:true});
+                client.trackRequest({name: registration.resource + '/' + registration.action, url:registration.url, duration:response.elapsedTime, resultCode:response.statusCode, success:true});
             }
         }
     );
