@@ -4,7 +4,7 @@ module.exports = function (context, message) {
     context.log(message);
     context.log(context.bindings.message);
 
-    request.post('https://deepthunker.azurewebsites.net/api/fakehook?code=n8ac5oliqJyqreC7wOpbvRE71WpKAY8nfLRC4z9diNVHRrVyXsagLg==',
+    request.post('https://deepthunker.azurewebsites.net/api/fakehook?code=dQRaiGlwpNk7YY0yu/xX/h1z3NCYlz2CaqUBlIz8EYeicJRYn/kBgw==',
         {
             json: true,
             body: message
