@@ -10,5 +10,6 @@ module.exports = async function (context, req) {
         body: err
     };
 
-    context.done(err, model);
+    context.bindings.json = model;
+    context.done(err);
 };
