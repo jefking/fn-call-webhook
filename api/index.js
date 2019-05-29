@@ -1,5 +1,9 @@
 const { ServiceBusClient } = require("@azure/service-bus"); 
 
+const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
+const topicClient = sbClient.createTopicClient(process.env.TopicName);
+const sender = topicClient.createSender();
+
 module.exports = async function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     let err = !model ? "no data; or invalid payload in body" : null;
@@ -24,11 +28,6 @@ module.exports = async function (context, req) {
 
         context.log(msg);
 
-        const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
-        const topicClient = sbClient.createTopicClient(process.env.TopicName);
-        const sender = topicClient.createSender();
-
-        
         await sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
     }
     
