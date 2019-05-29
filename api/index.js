@@ -17,17 +17,17 @@ module.exports = async function (context, req) {
         model.Now = timeNowUtc;
         model.At = scheduledEnqueueTimeUtc;
 
-        let msg = new ServiceBusMessage();
-        msg.body = model;//JSON.stringify(model),
-        msg.contentType = "application/json",
-        msg.scheduledEnqueueTimeUtc = scheduledEnqueueTimeUtc,
-        msg.userProperties = {
-            id: model.id
-        }
+        let msg = null;// new ServiceBusMessage();
+        // msg.body = model;//JSON.stringify(model),
+        // msg.contentType = "application/json",
+        // msg.scheduledEnqueueTimeUtc = scheduledEnqueueTimeUtc,
+        // msg.userProperties = {
+        //     id: model.id
+        // }
 
-        context.log(msg);
+        // context.log(msg);
 
-        await sender.scheduleMessages(scheduledEnqueueTimeUtc, msg);
+        await sender.scheduleMessages(scheduledEnqueueTimeUtc, {body: "wtf"});
         //context.bindings.send = msg;
     }
     
