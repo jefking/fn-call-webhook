@@ -24,7 +24,7 @@ module.exports = function (context, msg, registration) {
 
                 context.log({body: body});
 
-                // client.trackRequest({name:"GET /customers", url:url, duration:309, resultCode:200, success:true});
+                client.trackRequest({name:"POST", url:url, duration:309, resultCode:200, success:true});
             }
         }
     );
