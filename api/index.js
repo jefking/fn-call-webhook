@@ -1,4 +1,4 @@
-var request = require('request');
+const { ServiceBusClient } = require("@azure/service-bus");
 
 const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
 const topicClient = sbClient.createTopicClient(process.env.TopicName);
