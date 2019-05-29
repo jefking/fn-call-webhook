@@ -21,7 +21,7 @@ module.exports = function (context, req) {
         id: num,
         tenantId: uuidv4(),
         resource: resource,
-        action: 'created'
+        action: actions[resource][actionNum]
     };
     
     context.log(model);
