@@ -13,6 +13,13 @@
             "type": "http",
             "direction": "out",
             "name": "res"
+        },
+        {
+            "name": "out",
+            "type": "serviceBus",
+            "topicName": "users",
+            "connection": "ServiceBus",
+            "direction": "out"
         }
     ],
     "disabled": false
