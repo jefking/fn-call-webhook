@@ -197,7 +197,7 @@
                                     ],
                                     "properties": {
                                         "filter": {
-                                            "sqlExpression": "id<5"
+                                            "sqlExpression": "id < 5"
                                         }
                                     }
                                 }
