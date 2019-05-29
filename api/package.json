@@ -1,7 +1,0 @@
-{
-    "name": "api",
-    "version": "0.0.1",
-    "dependencies": {
-        "@azure/service-bus": "^1.0.2"
-    }
-}
