@@ -12,7 +12,7 @@
           "name": "registration",
           "type": "blob",
           "direction": "in",
-          "path": "registry/demo.demo.{body.tenantId}.json"
+          "path": "registry/{body.resource}.{body.action}.{body.tenantId}.json"
         }
     ],
     "disabled": false
