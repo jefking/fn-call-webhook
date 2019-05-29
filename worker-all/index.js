@@ -5,9 +5,9 @@ module.exports = function (context, msg, registration) {
     appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
 
-    context.log(registration);
+    context.log({reg: registration});
 
-    let url = 'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
+    let url = registration.url;//'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
     request.post(url,
         {
             json: true,
@@ -16,16 +16,15 @@ module.exports = function (context, msg, registration) {
         function (error, response, body) {
             if (error)
             {
-                aiClient.trackException({exception: error});
                 context.done(error);
             }
             else
             {
-                context.log(response);
+                context.log({rep: response});
 
-                context.log(body);
+                context.log({body: body});
 
-                client.trackRequest({name:"GET /customers", url:url, duration:309, resultCode:200, success:true});
+                // client.trackRequest({name:"GET /customers", url:url, duration:309, resultCode:200, success:true});
             }
         }
     );
