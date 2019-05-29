@@ -114,7 +114,17 @@
             },
             "properties": {
                 "accessTier": "Hot"
-            }
+            },
+            "resources": [
+                {
+                    "type": "blobServices/containers",
+                    "name": "default/registry",
+                    "apiVersion": "2018-07-01",
+                    "dependsOn": [
+                        "[variables('storageAccountName')]"
+                    ]
+                }
+            ]
         },
         {
             "apiVersion": "2018-05-01-preview",

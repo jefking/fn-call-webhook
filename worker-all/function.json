@@ -8,6 +8,12 @@
             "direction": "in",
             "connection": "ServiceBus",
             "accessRights": "Manage"
+        },
+        {
+          "name": "file",
+          "type": "blob",
+          "direction": "in",
+          "path": "registry/{resource}/{action}/{tenantId}.json"
         }
     ],
     "disabled": false

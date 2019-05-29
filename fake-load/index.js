@@ -4,8 +4,7 @@ const resources = ['user', 'order', 'enrollment'];
 const actions = LoadActions();
 
 //THIS IS JUST FOR TESTING
-module.exports = function (context, req) {
-    let num = Math.floor(Math.random() * 10000);    
+module.exports = function (context, req) {  
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
     let actionNum = Math.floor(Math.random() * actions[resource].length);
@@ -13,10 +12,9 @@ module.exports = function (context, req) {
     let future = Math.floor(Math.random() * 15);
     
     var model = {
-        userId: num,
-        tenantId: uuidv4(),
-        resource: resource,
-        action: action,
+        tenantId: 'e155369f',//uuidv4(),
+        resource: 'temp',//resource,
+        action: 'temp',//action,
         addMinutes: future
     };
     
