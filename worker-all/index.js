@@ -5,6 +5,8 @@ module.exports = function (context, msg, registration) {
     appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
 
+    context.log(registration);
+
     let url = 'https://deepthunker.azurewebsites.net/api/fake-hook?code=6XErItfUWT/nTVB8ksEa2JLxCOkZDQ1hbbatczBWpRYtCThZL63GNA==';
     request.post(url,
         {
