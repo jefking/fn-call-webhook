@@ -148,7 +148,7 @@
                 {
                     "apiVersion": "2017-04-01",
                     "name": "[variables('queueName')]",
-                    "type": "Topics",
+                    "type": "Queues",
                     "dependsOn": [
                         "[concat('Microsoft.ServiceBus/namespaces/', variables('serviceBusNamespaceName'))]"
                     ],
