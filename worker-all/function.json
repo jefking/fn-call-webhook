@@ -1,8 +1,7 @@
 {
     "bindings": [
         {
-            "topicName": "users",
-            "subscriptionName": "all",
+            "queueName": "users",
             "name": "msg",
             "type": "serviceBusTrigger",
             "direction": "in",

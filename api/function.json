@@ -17,7 +17,7 @@
         {
             "name": "send",
             "type": "serviceBus",
-            "topicName": "users",
+            "queueName": "users",
             "connection": "ServiceBus",
             "direction": "out"
         }
