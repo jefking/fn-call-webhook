@@ -12,10 +12,10 @@ module.exports = function (context, req) {
     let future = Math.floor(Math.random() * 15);
     
     var model = {
-        tenantId: 'e155369f',//uuidv4(),
-        resource: 'temp',//resource,
-        action: 'temp',//action,
-        addMinutes: future
+        "tenantId": "e155369f",//uuidv4(),
+        "resource": "temp",//resource,
+        "action": "temp",//action,
+        "addMinutes": future
     };
     
     request.post('https://deepthunker.azurewebsites.net/api/api?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
