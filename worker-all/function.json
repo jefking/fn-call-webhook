@@ -13,7 +13,7 @@
           "name": "registration",
           "type": "blob",
           "direction": "in",
-          "path": "registry/{resource}.{action}.{tenantId}.json"
+          "path": "registry/fake.json"
         }
     ],
     "disabled": false
