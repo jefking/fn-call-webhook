@@ -22,7 +22,8 @@ module.exports = async function (context, req) {
             contentType: "application/json",
             scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
             userProperties: {
-                id: model.id
+                resource: model.resource,
+                action: model.action
             }
         }
     }

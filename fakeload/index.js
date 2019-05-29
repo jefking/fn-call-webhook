@@ -14,7 +14,8 @@ module.exports = function (context, req) {
         id: num,
         tenantId: uuidv4(),
         resource: resource,
-        action: actions[resource][actionNum]
+        action: actions[resource][actionNum],
+        addMinutes: Math.floor(Math.random() * 5)
     };
     
     request.post('https://deepthunker.azurewebsites.net/api/api?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
