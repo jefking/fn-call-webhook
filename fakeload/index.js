@@ -1,12 +1,7 @@
 var request = require('request');
 
-
 const resources = ['user', 'order', 'enrollment'];
-const actions = new Hash(
-    resources[0], ['signup', 'signin'],
-    resources[1], ['created'],
-    resources[2], ['created', 'trial', 'progress', 'completed']
-);
+const actions = LoadActions();
 
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
@@ -44,4 +39,14 @@ function uuidv4() {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
+}
+
+function LoadActions()
+{
+    var actions = {};
+    actions[resources[0]] = ['signup', 'signin'],
+    actions[resources[1]] = ['created'],
+    actions[resources[2]] = ['created', 'trial', 'progress', 'completed']
+
+    return actions;
 }
