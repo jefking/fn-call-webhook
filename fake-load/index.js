@@ -15,7 +15,11 @@ module.exports = function (context, req) {
         "tenantId": "e155369f",//uuidv4(), HARD CODED FOR TESTING
         "resource": resource,
         "action": action,
-        "addMinutes": future
+        "addMinutes": future,
+        "payload": {
+            "foo": "bar",
+            "garbage": "mooon"
+        }
     };
     
     request.post('https://deepthunker.azurewebsites.net/api/publish?code=rwfBZe2yk6Jb/84Vv0J7J69PZQMFvDAxoQmv7oBulrQoj6cOVda0bQ==',
