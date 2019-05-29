@@ -11,7 +11,7 @@ module.exports = function (context, req) {
     let actionNum = Math.floor(Math.random() * actions[resource].length);
 
     var model = {
-        id: num,
+        userId: num,
         tenantId: uuidv4(),
         resource: resource,
         action: actions[resource][actionNum],
