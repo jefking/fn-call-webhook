@@ -15,10 +15,10 @@ module.exports = async function (context, req) {
             body: model,
             contentType: "application/json",
             scheduledEnqueueTimeUtc: scheduledEnqueueTimeUtc,
-            userProperties: {
-                resource: model.resource,
-                action: model.action
-            }
+            // userProperties: {
+            //     resource: model.resource,
+            //     action: model.action
+            // }
         }
     }
     
