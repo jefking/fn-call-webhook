@@ -19,8 +19,6 @@ module.exports = function (context, req) {
         action: actions[resource][actionNum]
     };
     
-    context.log(model);
-
     request.post('https://deepthunker.azurewebsites.net/api/api?code=5wX7x78ZSbpw4uisByLFxJd9lxeID0LfkQ32i0IgRkQ3UZuaF5Mj/Q==',
         {
             json: true,
