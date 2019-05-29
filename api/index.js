@@ -26,7 +26,7 @@ module.exports = async function (context, req) {
             }
         }
 
-        // context.log(msg);
+        context.log(msg);
 
        // await sender.scheduleMessages(scheduledEnqueueTimeUtc, [{body: "shipping an array of messages"}]);
 
