@@ -1,7 +1,7 @@
 const request = require('request');
 const appInsights = require("applicationinsights");
 
-module.exports = function (context, msg) {
+module.exports = function (context, msg, registration) {
     appInsights.setup().start();
     let aiClient = appInsights.defaultClient;
 
