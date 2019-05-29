@@ -1,8 +1,8 @@
-const { ServiceBusClient } = require("@azure/service-bus");
+// const { ServiceBusClient } = require("@azure/service-bus");
 
-const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
-const topicClient = sbClient.createTopicClient(process.env.TopicName);
-const sender = topicClient.createSender();
+// const sbClient = ServiceBusClient.createFromConnectionString(process.env.ServiceBus); 
+// const topicClient = sbClient.createTopicClient(process.env.TopicName);
+// const sender = topicClient.createSender();
 
 module.exports = async function (context, req) {
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
@@ -30,8 +30,8 @@ module.exports = async function (context, req) {
 
        // await sender.scheduleMessages(scheduledEnqueueTimeUtc, [{body: "shipping an array of messages"}]);
 
-        await sender.send(msg);
-        //context.bindings.send = msg;
+        //await sender.send(msg);
+        context.bindings.send = msg;
     }
     
     context.res = {
