@@ -8,7 +8,8 @@ module.exports = function (context, req) {
 
     var model = {
         id: num,
-        unique: uuidv4()
+        unique: uuidv4(),
+        from: "nodejs"
     };
     
     context.log(model);
