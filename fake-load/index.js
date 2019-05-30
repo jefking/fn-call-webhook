@@ -23,7 +23,7 @@ module.exports = function (context, req) {
         }
     };
     
-    request.post(process.env.POST_TO,
+    request.post(process.env.LoadPost,
         {
             json: true,
             body: model
