@@ -18,7 +18,8 @@ module.exports = function (context, req) {
         "addMinutes": future,
         "payload": {
             "foo": "bar",
-            "garbage": "mooon"
+            "garbage": "mooon",
+            "actionId": uuidv4()
         }
     };
     
