@@ -23,7 +23,7 @@ module.exports = function (context, req) {
         }
     };
     
-    request.post('https://deepthunker.azurewebsites.net/api/publish?code=hHcEXVjMzxc9SkOFxU5yL22lWiO0kD5qOhUsE3zPckAJzSO/8I89ZA==',
+    request.post('<CHANGE URL>',
         {
             json: true,
             body: model
