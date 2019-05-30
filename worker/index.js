@@ -8,7 +8,7 @@ module.exports = function (context, msg, registration) {
     request.post(registration.url,
         {
             json: true,
-            body: msg.payload
+            body: msg
         },
         function (error, response, body) {
             if (error)
