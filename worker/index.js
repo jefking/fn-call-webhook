@@ -17,8 +17,6 @@ module.exports = function (context, msg, registration) {
             }
             else
             {
-                context.log({rep: response});
-
                 client.trackRequest({name: registration.resource + '/' + registration.action, url:registration.url, duration:response.elapsedTime, resultCode:response.statusCode, success:true});
 
                 context.done();
