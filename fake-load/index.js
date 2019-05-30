@@ -23,7 +23,7 @@ module.exports = function (context, req) {
         }
     };
     
-    request.post('<CHANGE URL>',
+    request.post(process.env.POST_TO,
         {
             json: true,
             body: model
