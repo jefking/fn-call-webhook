@@ -22,7 +22,7 @@ module.exports = function (context, req) {
         }
     };
     
-    request.post('https://deepthunker.azurewebsites.net/api/publish?code=rwfBZe2yk6Jb/84Vv0J7J69PZQMFvDAxoQmv7oBulrQoj6cOVda0bQ==',
+    request.post('https://deepthunker.azurewebsites.net/api/publish?code=hHcEXVjMzxc9SkOFxU5yL22lWiO0kD5qOhUsE3zPckAJzSO/8I89ZA==',
         {
             json: true,
             body: model
