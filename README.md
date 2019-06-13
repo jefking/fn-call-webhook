@@ -2,6 +2,12 @@
 Diving deep into a hack-a-thon, with Functions.
 fakeload (test) -> API -> Worker -> fakehook (test)
 
+Functions
+- fake-hook: used to provide an endpoint to call out to.
+- fake-load: cron-job, to push events through the system.
+- publish: publishes an action on the queue
+- register: registers a user/action to a web hook
+- worker: calls web hooks, when message is pushed through queue
 
 
 ## Deployment
