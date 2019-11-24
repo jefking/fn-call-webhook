@@ -10,6 +10,7 @@
         }
     },
     "variables": {
+        "location": "[resourceGroup().location]",
         "storageName": "[concat('function', uniqueString(parameters('appName')))]",
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
@@ -27,7 +28,7 @@
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2015-04-01",
             "name": "[variables('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "properties": {
                 "name": "[variables('hostingPlanName')]",
                 "computeMode": "Dynamic",
@@ -38,7 +39,7 @@
             "apiVersion": "2016-03-01",
             "name": "[variables('functionAppName')]",
             "type": "Microsoft.Web/sites",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "kind": "functionapp",
             "properties": {
                 "name": "[parameters('appName')]",
@@ -111,7 +112,7 @@
             "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-07-01",
             "kind": "StorageV2",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
@@ -134,7 +135,7 @@
             "apiVersion": "2018-05-01-preview",
             "name": "[variables('applicationInsightsName')]",
             "type": "microsoft.insights/components",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "properties": {
                 "ApplicationId": "[variables('applicationInsightsName')]",
                 "Request_Source": "IbizaWebAppExtensionCreate"
@@ -144,7 +145,7 @@
             "apiVersion": "2017-04-01",
             "name": "[variables('serviceBusNamespaceName')]",
             "type": "Microsoft.ServiceBus/Namespaces",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "sku": {
                 "name": "Standard"
             },
