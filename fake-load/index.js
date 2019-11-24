@@ -7,6 +7,8 @@ const actions = LoadActions();
 //THIS IS JUST FOR TESTING
 module.exports = function (context, req) {
     appInsights.setup().start();
+    let client = appInsights.defaultClient;
+
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
     let actionNum = Math.floor(Math.random() * actions[resource].length);
@@ -31,7 +33,16 @@ module.exports = function (context, req) {
             body: model
         },
         function (error, response, body) {
-            if (error) context.done(error);
+            if (error)
+            {
+                context.done(error);
+            }
+            else
+            {
+                client.trackRequest({name: registration.resource + '/' + registration.action, url:registration.url, duration:response.elapsedTime, resultCode:response.statusCode, success:true});
+
+                context.done();
+            }
         }
     );
 
