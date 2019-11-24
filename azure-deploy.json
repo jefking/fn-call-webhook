@@ -20,7 +20,7 @@
         "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', variables('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
         "storageAccountName": "[concat(parameters('appName'), 'storage')]",
         "queueName": "users",
-        "repoUrl": "https://github.com/jefking/fn-call-webhook",
+        "repoUrl": "https://github.com/jefking/fn-call-webhook.git",
         "branch": "master"
     },
     "resources": [
@@ -124,6 +124,14 @@
                 {
                     "type": "blobServices/containers",
                     "name": "default/registry",
+                    "apiVersion": "2018-07-01",
+                    "dependsOn": [
+                        "[variables('storageAccountName')]"
+                    ]
+                },
+                {
+                    "type": "blobServices/containers",
+                    "name": "default/success",
                     "apiVersion": "2018-07-01",
                     "dependsOn": [
                         "[variables('storageAccountName')]"
