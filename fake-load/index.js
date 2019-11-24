@@ -39,7 +39,7 @@ module.exports = function (context, req) {
             }
             else
             {
-                client.trackRequest({name: registration.resource + '/' + registration.action, url:registration.url, duration:response.elapsedTime, resultCode:response.statusCode, success:true});
+                client.trackRequest({name: registration.resource + '/' + registration.action, url:process.env.LoadPost, duration:response.elapsedTime, resultCode:response.statusCode, success:true});
 
                 context.done();
             }
