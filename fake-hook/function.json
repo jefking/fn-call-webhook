@@ -13,6 +13,12 @@
             "type": "http",
             "direction": "out",
             "name": "res"
+        },
+        {
+          "name": "save",
+          "type": "blob",
+          "direction": "out",
+          "path": "success/{body.resource}.{body.action}.{body.tenantId}.json"
         }
     ],
     "disabled": false
