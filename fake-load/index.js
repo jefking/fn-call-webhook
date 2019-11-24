@@ -1,10 +1,12 @@
-var request = require('request');
+const request = require('request');
+const appInsights = require("applicationinsights");
 
 const resources = ['user', 'order', 'enrollment'];
 const actions = LoadActions();
 
 //THIS IS JUST FOR TESTING
-module.exports = function (context, req) {  
+module.exports = function (context, req) {
+    appInsights.setup().start();
     let resourceNum = Math.floor(Math.random() * 3);
     resource = resources[resourceNum];
     let actionNum = Math.floor(Math.random() * actions[resource].length);

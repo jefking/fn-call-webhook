@@ -3,7 +3,6 @@ const appInsights = require("applicationinsights");
 
 module.exports = function (context, msg, registration) {
     appInsights.setup().start();
-    let aiClient = appInsights.defaultClient;
     
     request.post(registration.url,
         {
