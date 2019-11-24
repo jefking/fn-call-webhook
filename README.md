@@ -11,11 +11,14 @@ Functions
 
 Order
 Fake Load -> Publish (event) -> Service Bus Queue -> Worker -> loads data from /registry -> calls registered webhook (Fake-hook)
+- Fake Load, generates fake/random data
+- Publish, where you push your events to (what Fake Load calls)
 
 ## Deployment
 
-# Pre-requisits
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
+
+### Pre-requisits
 
 [Azure-Cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
@@ -35,5 +38,5 @@ Update files in ./data: <CHANGE URL> -> URL of 'fake-hook' function; which simul
 ### Step 4.
 Upload files to Blob Storage; local ./data -> storage acc/registry
 
-### Step 4.
-Load Post -> URL of Publish Function
+### Step 5.
+Function App configuration 'LoadPost' set to URL of Publish function
