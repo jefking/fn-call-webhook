@@ -8,6 +8,7 @@ module.exports = function (context, req) {
 
     context.log(model.body.id);
     context.bindings.json = model.body;
+    context.bindings.json.id = model.body.id;
     context.res = {
         status: 200
     };
