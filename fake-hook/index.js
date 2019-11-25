@@ -6,7 +6,7 @@ module.exports = function (context, req) {
     
     let model = (typeof req.body != 'undefined' && typeof req.body == 'object') ? req.body : null;
     context.success = model.body;
-    context.log(model);
+    context.log(context.success);
 
     context.res = {
         status: 200
