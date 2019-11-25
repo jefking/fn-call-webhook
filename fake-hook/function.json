@@ -13,12 +13,6 @@
             "type": "http",
             "direction": "out",
             "name": "res"
-        },
-        {
-          "name": "json",
-          "type": "blob",
-          "direction": "out",
-          "path": "success/{json.id}.json"
         }
     ],
     "disabled": false
