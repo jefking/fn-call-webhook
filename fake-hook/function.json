@@ -15,7 +15,7 @@
             "name": "res"
         },
         {
-          "name": "success",
+          "name": "json",
           "type": "blob",
           "direction": "out",
           "path": "success/{payload.actionId}.json"
