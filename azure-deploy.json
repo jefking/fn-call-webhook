@@ -128,14 +128,6 @@
                     "dependsOn": [
                         "[variables('storageAccountName')]"
                     ]
-                },
-                {
-                    "type": "blobServices/containers",
-                    "name": "default/success",
-                    "apiVersion": "2018-07-01",
-                    "dependsOn": [
-                        "[variables('storageAccountName')]"
-                    ]
                 }
             ]
         },
