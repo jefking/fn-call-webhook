@@ -20,6 +20,7 @@ module.exports = function (context, req) {
         "resource": resource,
         "action": action,
         "addMinutes": future,
+        "id": uuidv4(),
         "payload": {
             "foo": "bar",
             "garbage": "mooon",

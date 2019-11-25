@@ -18,7 +18,7 @@
           "name": "json",
           "type": "blob",
           "direction": "out",
-          "path": "success/{payload.actionId}.json"
+          "path": "success/{id}.json"
         }
     ],
     "disabled": false
