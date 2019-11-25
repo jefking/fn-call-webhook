@@ -18,7 +18,7 @@
           "name": "success",
           "type": "blob",
           "direction": "out",
-          "path": "success/{resource}.{action}.{tenantId}.json"
+          "path": "success/{payload.actionId}.json"
         }
     ],
     "disabled": false
